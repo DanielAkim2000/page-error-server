@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erreur 502 - Mauvaise Passerelle</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="error-502">
+    <div class="container">
+      <div class="error-code">502</div>
+      <div class="error-title">Mauvaise Passerelle</div>
+      <div class="gateway-animation">
+        <div class="gateway">
+          <div class="gateway-left"></div>
+          <div class="gateway-right"></div>
+          <div class="connection">
+            <div class="packet"></div>
+          </div>
+        </div>
+      </div>
+      <div class="error-description">
+        <p>
+          Le serveur a rencontré une erreur temporaire et n'a pas pu traiter
+          votre requête.
+        </p>
+        <p>
+          Le service auquel vous essayez d'accéder est actuellement
+          indisponible.
+        </p>
+      </div>
+      <div class="actions">
+        <button class="retry-btn" onclick="window.location.reload()">
+          <i class="fas fa-sync-alt"></i> Réessayer
+        </button>
+        <button class="home-btn" onclick="window.location.href='/'">
+          <i class="fas fa-home"></i> Accueil
+        </button>
+      </div>
+    </div>
+    <script src="js/error.js"></script>
+  </body>
+</html>

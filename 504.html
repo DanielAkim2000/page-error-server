@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erreur 504 - Délai d'Attente de la Passerelle</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="error-504">
+    <div class="container">
+      <div class="error-code">504</div>
+      <div class="error-title">Délai d'Attente de la Passerelle</div>
+      <div class="timeout-animation">
+        <div class="hourglass">
+          <div class="hourglass-top"></div>
+          <div class="hourglass-middle">
+            <div class="sand-stream"></div>
+          </div>
+          <div class="hourglass-bottom"></div>
+          <div class="sand"></div>
+        </div>
+      </div>
+      <div class="error-description">
+        <p>Le serveur a mis trop de temps à répondre à votre demande.</p>
+        <p>
+          Cela peut être dû à une surcharge du serveur ou à des problèmes
+          réseau.
+        </p>
+      </div>
+      <div class="actions">
+        <button class="retry-btn" onclick="window.location.reload()">
+          <i class="fas fa-sync-alt"></i> Réessayer
+        </button>
+        <button class="home-btn" onclick="window.location.href='/'">
+          <i class="fas fa-home"></i> Accueil
+        </button>
+      </div>
+    </div>
+    <script src="js/error.js"></script>
+  </body>
+</html>

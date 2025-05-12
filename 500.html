@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erreur 500 - Erreur Interne du Serveur</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="error-500">
+    <div class="container">
+      <div class="error-code">500</div>
+      <div class="error-title">Erreur Interne du Serveur</div>
+      <div class="server-animation">
+        <div class="server">
+          <div class="server-lights">
+            <div class="light light-1"></div>
+            <div class="light light-2"></div>
+            <div class="light light-3"></div>
+          </div>
+          <div class="server-body"></div>
+          <div class="smoke"></div>
+        </div>
+      </div>
+      <div class="error-description">
+        <p>Oups ! Quelque chose s'est mal passé de notre côté.</p>
+        <p>
+          Nos équipes techniques ont été informées et travaillent à résoudre le
+          problème.
+        </p>
+      </div>
+      <div class="actions">
+        <button class="retry-btn" onclick="window.location.reload()">
+          <i class="fas fa-sync-alt"></i> Réessayer
+        </button>
+        <button class="home-btn" onclick="window.location.href='/'">
+          <i class="fas fa-home"></i> Accueil
+        </button>
+      </div>
+    </div>
+    <script src="js/error.js"></script>
+  </body>
+</html>

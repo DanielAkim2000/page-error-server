@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erreur 503 - Service Indisponible</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="error-503">
+    <div class="container">
+      <div class="error-code">503</div>
+      <div class="error-title">Service Indisponible</div>
+      <div class="maintenance-animation">
+        <div class="maintenance">
+          <div class="tools">
+            <div class="wrench"></div>
+            <div class="gear gear-1"></div>
+            <div class="gear gear-2"></div>
+          </div>
+          <div class="worker">
+            <div class="worker-head"></div>
+            <div class="worker-body"></div>
+            <div class="worker-arm"></div>
+          </div>
+        </div>
+      </div>
+      <div class="error-description">
+        <p>
+          Notre service est temporairement indisponible pour cause de
+          maintenance ou de surcharge.
+        </p>
+        <p>
+          Veuillez nous excuser pour la gêne occasionnée et réessayer plus tard.
+        </p>
+      </div>
+      <div class="actions">
+        <button class="retry-btn" onclick="window.location.reload()">
+          <i class="fas fa-sync-alt"></i> Réessayer
+        </button>
+        <button class="home-btn" onclick="window.location.href='/'">
+          <i class="fas fa-home"></i> Accueil
+        </button>
+      </div>
+    </div>
+    <script src="js/error.js"></script>
+  </body>
+</html>
