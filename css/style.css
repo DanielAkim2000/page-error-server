@@ -1,9 +1,9 @@
 /* Variables globales */
 :root {
-  --primary-color: #4a6cf7;
+  --primary-color: oklch(0.6 0.2 289.717);
   --secondary-color: #f27474;
   --accent-color: #64c2a6;
-  --background-dark: #1c2951;
+  --background-dark: oklch(0.25 0.05 289.717);
   --background-light: #f8f9fa;
   --text-dark: #333;
   --text-light: #f8f9fa;
@@ -20,7 +20,11 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(135deg, var(--background-dark), #2a3a60);
+  background: linear-gradient(
+    135deg,
+    var(--background-dark),
+    oklch(0.35 0.05 289.717)
+  );
   color: var(--text-light);
   min-height: 100vh;
   display: flex;
@@ -222,36 +226,79 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 280px;
   margin: 0 auto;
 }
 
 .error-502 .gateway-left,
 .error-502 .gateway-right {
-  width: 80px;
-  height: 120px;
-  background-color: #444;
-  border-radius: 10px;
+  width: 35px;
+  height: 70px;
+  background-color: #333;
+  border-radius: 4px;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.error-502 .gateway-left:before,
+.error-502 .gateway-right:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  animation: server-blink 1.5s infinite;
+}
+
+.error-502 .gateway-left:after,
+.error-502 .gateway-right:after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  animation: server-blink 2s infinite 0.5s;
 }
 
 .error-502 .connection {
-  height: 10px;
+  height: 3px;
   flex-grow: 1;
-  background-color: #555;
+  background-color: #444;
   position: relative;
   overflow: hidden;
+  margin: 0 15px;
+  border-radius: 1.5px;
 }
 
 .error-502 .packet {
-  width: 20px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
   background-color: var(--primary-color);
   border-radius: 50%;
   position: absolute;
-  top: -5px;
+  top: -2.5px;
   left: 0;
   animation: packet-move 3s linear infinite;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+@keyframes server-blink {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes packet-move {
@@ -259,26 +306,31 @@ button {
     left: 0;
     transform: scale(1);
     background-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
   }
   40% {
     left: 40%;
     transform: scale(1.2);
     background-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
   }
   50% {
     left: 50%;
     transform: scale(0.8);
     background-color: var(--secondary-color);
+    box-shadow: 0 0 6px var(--secondary-color);
   }
   60% {
     left: 60%;
     transform: scale(0.5);
     background-color: var(--secondary-color);
+    box-shadow: 0 0 4px var(--secondary-color);
   }
   100% {
     left: 100%;
     transform: scale(0);
     background-color: var(--secondary-color);
+    box-shadow: 0 0 0 var(--secondary-color);
   }
 }
 
@@ -550,8 +602,8 @@ button {
 
   .error-502 .gateway-left,
   .error-502 .gateway-right {
-    width: 60px;
-    height: 100px;
+    width: 30px;
+    height: 70px;
   }
 }
 
@@ -575,7 +627,7 @@ button {
 
   .error-502 .gateway-left,
   .error-502 .gateway-right {
-    width: 50px;
-    height: 80px;
+    width: 25px;
+    height: 60px;
   }
 }

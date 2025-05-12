@@ -75,27 +75,65 @@ function initializeError500Animation() {
 function initializeError502Animation() {
   const gateway = document.querySelector(".gateway");
   const packetElement = document.querySelector(".packet");
+  const connection = document.querySelector(".connection");
 
-  // Crée des clignotements pour les gateways
-  setInterval(() => {
+  // Ajouter plusieurs paquets pour une animation plus riche
+  function addExtraPackets() {
+    // Supprimer les paquets existants sauf le premier
+    const existingPackets = document.querySelectorAll(
+      ".packet:not(:first-child)"
+    );
+    existingPackets.forEach((packet) => packet.remove());
+
+    // Créer 2 nouveaux paquets supplémentaires avec des délais différents
+    for (let i = 0; i < 2; i++) {
+      const newPacket = document.createElement("div");
+      newPacket.className = "packet";
+      newPacket.style.animationDelay = `${(i + 1) * 1}s`;
+      connection.appendChild(newPacket);
+    }
+  }
+
+  // Ajouter un effet de scintillement aux serveurs
+  function addServerFlicker() {
     const gatewayLeft = document.querySelector(".gateway-left");
     const gatewayRight = document.querySelector(".gateway-right");
 
-    // Clignotement aléatoire des passerelles
-    if (Math.random() > 0.8) {
-      gatewayLeft.style.opacity = "0.5";
-      setTimeout(() => {
-        gatewayLeft.style.opacity = "1";
-      }, 200);
-    }
+    setInterval(() => {
+      // Effet de scintillement pour le serveur gauche
+      if (Math.random() > 0.7) {
+        gatewayLeft.style.opacity = "0.5";
+        setTimeout(() => {
+          gatewayLeft.style.opacity = "1";
+        }, 100);
+      }
 
-    if (Math.random() > 0.8) {
-      gatewayRight.style.opacity = "0.5";
-      setTimeout(() => {
-        gatewayRight.style.opacity = "1";
-      }, 200);
-    }
-  }, 500);
+      // Effet de scintillement pour le serveur droit
+      if (Math.random() > 0.7) {
+        gatewayRight.style.opacity = "0.5";
+        setTimeout(() => {
+          gatewayRight.style.opacity = "1";
+        }, 150);
+      }
+    }, 800);
+  }
+
+  // Effet de connexion interrompue
+  function connectionFailEffect() {
+    setInterval(() => {
+      if (Math.random() > 0.7) {
+        connection.style.opacity = "0.3";
+        setTimeout(() => {
+          connection.style.opacity = "1";
+        }, 200);
+      }
+    }, 2000);
+  }
+
+  // Initialiser les animations
+  addExtraPackets();
+  addServerFlicker();
+  connectionFailEffect();
 }
 
 // Animation pour l'erreur 503
